@@ -13,6 +13,7 @@ import org.ospic.inventory.admission.domains.Admission;
 import org.ospic.patient.contacts.domain.ContactsInformation;
 import org.ospic.patient.diagnosis.domains.Diagnosis;
 import org.ospic.organization.staffs.domains.Staff;
+import org.ospic.patient.service.domain.PatientQueryInfo;
 import org.ospic.security.authentication.users.domain.User;
 import org.ospic.util.constants.DatabaseConstants;
 import org.ospic.util.enums.Gender;
@@ -125,6 +126,10 @@ public class Patient extends Auditable<User> implements Serializable {
     @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
     @JoinColumn(name = "patient_id")
     private ContactsInformation contactsInformation;
+
+    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
+    @JoinColumn(name = "patient_info")
+    private PatientQueryInfo patientQueryInfo;
 
 
     @ManyToOne

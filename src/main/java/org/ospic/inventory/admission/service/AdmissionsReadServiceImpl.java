@@ -125,7 +125,7 @@ public class AdmissionsReadServiceImpl implements AdmissionsReadService {
         return null;
     }
 
-    private static final class AdmissionResponseDataRowMapper implements RowMapper<AdmissionResponseData> {
+    public static final class AdmissionResponseDataRowMapper implements RowMapper<AdmissionResponseData> {
 
         public String schema() {
             return  " a.id as id, a.is_active as isActive, a.start_date as startDate, a.end_date as endDate, ab.beds_id as bedId, ap.patients_id as patientId, " +

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import io.swagger.annotations.ApiModel;
 import lombok.*;
 import org.ospic.patient.infos.domain.Patient;
+import org.ospic.patient.service.domain.PatientQueryInfo;
 import org.ospic.util.constants.DatabaseConstants;
 
 import javax.persistence.*;
@@ -62,6 +63,11 @@ public class Diagnosis implements Serializable {
     @JoinColumn(name = "patient_id")
     @JsonIgnore
     private Patient patient;
+
+    @OneToOne
+    @JoinColumn(name = "diagnosis_id")
+    @JsonIgnore
+    private PatientQueryInfo patientQueryInfo;
 
     public Diagnosis( String symptoms, Date date, Patient patient) {
         this.symptoms = symptoms;
